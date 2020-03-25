@@ -25,7 +25,19 @@ class PageTwo(View):
 
     def post(self, request):
         html = "<html><body>"
-        for i in request.POST:
+        for i in request.POST.items():
             html += f"{i}<br>"
         html += "</body></html>"
         return HttpResponse(html)
+        
+class ContactView(View):
+
+    def get(self, request):
+        return render(request, 'test1/contact.html')
+
+    def post(self, request):
+        html = "<html><body>"
+        for i in request.POST.items():
+            html += f"{i}<br>"
+        html += "</body></html>"
+        return HttpResponse(html) 
